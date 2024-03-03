@@ -1,4 +1,5 @@
 from datetime import datetime
+from os import getenv
 
 import gradio as gr
 from ml_mgie.mgie import MGIE, MGIEParams
@@ -73,4 +74,8 @@ with gr.Blocks() as app:
 
 
 app.queue()
-app.launch(server_port=7122)
+password = getenv('ML_MGIE_PASSWORD', '')
+if password:
+  app.launch(server_port=7122, auth=(getenv('ML_MGIE_USERNAME', 'user'), password))
+else:
+  app.launch(server_port=7122)

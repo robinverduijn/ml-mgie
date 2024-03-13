@@ -2,7 +2,7 @@ PROJECT_NAME := ml_mgie
 
 .PHONY: venv
 venv:
-	python -m venv venv_${PROJECT_NAME} && echo "run: source venv_${PROJECT_NAME}/bin/activate"
+	python3.10 -m venv venv_${PROJECT_NAME} && echo "run: source venv_${PROJECT_NAME}/bin/activate"
 
 .PHONY: check_type
 check_type: ## run mypy
